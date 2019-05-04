@@ -6,35 +6,11 @@ import tech.geekcity.open.JAnt.api.annotation.Join;
 import tech.geekcity.open.JAnt.api.example.source.ItemExtendSource;
 import tech.geekcity.open.JAnt.api.example.source.ItemMainSource;
 
-import java.io.IOException;
-
 public class ItemExtendJoin implements Processor {
-
-    private String itemId;
-
-    public ItemExtendJoin(
-            @Input(processorName = ItemMainSource.class, outputFieldName = "itemId")
+    @Join(processorClass = ItemExtendSource.class, joinKey = "item_id", joinFieldNameList = {"userId", "title"})
+    String join(
+            @Input(upstreamClass = ItemMainSource.class, upstreamOutputFieldName = "item_id")
                     String itemId) {
-        this.itemId = itemId;
-    }
-
-    @Override
-    public void setup() {
-
-    }
-
-    @Override
-    public void close() throws IOException {
-
-    }
-
-    @Override
-    public void process() {
-
-    }
-
-    @Join(processorClass = ItemExtendSource.class, fieldName = "itemId", joinFieldNameList = {"userId", "title"})
-    String itemId() {
         return itemId;
     }
 }

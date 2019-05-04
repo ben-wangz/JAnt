@@ -5,10 +5,5 @@ import java.lang.annotation.*;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface Join {
-    Class processorClass();
-
-    String joinKey();
-
-    String[] joinFieldNameList();
+public @interface Process {
 }

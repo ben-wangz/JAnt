@@ -6,10 +6,9 @@ import java.io.IOException;
 public interface Processor extends Closeable {
     // inject data with constructor
     // invoke setup to do some initialization
-    void setup();
+    default void setup(Context context) {
 
-    // invoke close to release resources
-    void process();
+    }
 
     @Override
     default void close() throws IOException {

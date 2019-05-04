@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.PARAMETER)
 public @interface Input {
-    Class processorName() default Object.class;
+    Class upstreamClass() default Object.class;
 
-    String outputFieldName();
+    String upstreamOutputFieldName();
 }
